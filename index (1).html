@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PLU Code Checker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/html5-qrcode"></script> <!-- Scanner library -->
+
+  <!-- TensorFlow & Teachable Machine Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.4/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+  <h1>🍎 PLU Code Fruit Checker</h1>
+
+  <!-- Manual PLU input -->
+  <input type="text" id="pluInput" placeholder="Enter PLU Code" />
+  <button onclick="checkPLU()">Check</button>
+
+  <h2>📷 Or Scan Barcode</h2>
+  
+  <!-- Barcode Scanner View -->
+  <div id="reader" style="width: 300px; margin: 20px auto;"></div>
+  
+  <!-- Buttons to control scanner -->
+  <button onclick="startScanner()">Start Scanner</button>
+  <button onclick="stopScanner()">Stop Scanner</button>
+
+  <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+
+  <!-- 🔥 Fruit Quality Detection Section -->
+  <hr style="margin: 40px 0;">
+  <h2>🍌 Fruit Quality Detection</h2>
+
+  <!-- Webcam -->
+  <div id="webcam-container">
+    <video id="webcam" width="224" height="224" autoplay playsinline></video>
+  </div>
+
+  <!-- Detection Button & Result -->
+  <button onclick="detectQuality()">Check Quality</button>
+  <div id="quality-result" style="margin-top: 10px; font-size: 18px;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
